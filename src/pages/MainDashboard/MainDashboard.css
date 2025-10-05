@@ -1,0 +1,875 @@
+.main-dashboard {
+  position: relative;
+  min-height: 100vh;
+  background: radial-gradient(
+    ellipse at center,
+    #0a1929 0%,
+    #000510 50%,
+    #000208 100%
+  );
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+  color: white;
+}
+
+.main-dashboard__starfield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.main-dashboard__panel {
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  transform: perspective(1000px) rotateX(15deg) rotateY(-10deg) scale(0.8);
+  transition: all 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  will-change: transform, opacity;
+}
+
+.main-dashboard__panel--loaded {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);
+}
+
+.main-dashboard__content {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: 1fr auto;
+  gap: 2rem;
+  min-height: 100%;
+  align-items: center;
+}
+
+/* Navigation Sections */
+.main-dashboard__nav-left,
+.main-dashboard__nav-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  opacity: 0;
+  animation: navSlideIn 1s ease-out 1.2s forwards;
+  will-change: transform, opacity;
+  margin-left: 40px;
+}
+
+.main-dashboard__nav-left {
+  transform: translateX(-50px);
+}
+
+.main-dashboard__nav-right {
+  transform: translateX(50px);
+}
+
+@keyframes navSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Central Content */
+.main-dashboard__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.main-dashboard__planet-container {
+  position: relative;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: planetEntrance 1s ease-out 0.5s forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes planetEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-dashboard__planet {
+  filter: drop-shadow(0 10px 30px rgba(0, 212, 255, 0.3));
+}
+
+/* NASA Branding */
+.main-dashboard__branding {
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: brandingFade 1s ease-out 1s forwards;
+}
+
+.main-dashboard__nasa-logo {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+  letter-spacing: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.main-dashboard__nasa-subtitle {
+  font-size: 0.9rem;
+  color: #E0E0E0;
+  letter-spacing: 2px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+@keyframes brandingFade {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Welcome Message */
+.main-dashboard__welcome {
+  margin-bottom: 2rem;
+}
+
+.main-dashboard__welcome--animated .main-dashboard__title {
+  animation: titleGlow 2s ease-in-out infinite;
+}
+
+.main-dashboard__title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  opacity: 0;
+  animation: titleSlideUp 1s ease-out 1.2s forwards;
+}
+
+.main-dashboard__title-highlight {
+  color: #00D4FF;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+  display: inline-block;
+}
+
+@keyframes titleSlideUp {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(0, 212, 255, 1), 0 0 40px rgba(0, 212, 255, 0.6);
+  }
+}
+
+.main-dashboard__subtitle {
+  font-size: 1.3rem;
+  color: white;
+  margin-bottom: 0.8rem;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: textFade 1s ease-out 2s forwards;
+}
+
+.main-dashboard__ready-text {
+  font-size: 1rem;
+  color: #FFD700;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: textFade 1s ease-out 2.2s forwards;
+}
+
+@keyframes textFade {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Main Enter Button */
+.main-dashboard__enter-btn {
+  position: relative;
+  background: linear-gradient(135deg, #00D4FF 0%, #0099CC 100%);
+  border: 3px solid #00D4FF;
+  border-radius: 30px;
+  padding: 1.2rem 3.5rem;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(0, 212, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: enterButtonRise 1s ease-out 1.5s forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes enterButtonRise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-dashboard__enter-btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+.main-dashboard__enter-btn-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.main-dashboard__enter-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(0, 212, 255, 0.5);
+  border-color: #00ff88;
+}
+
+.main-dashboard__enter-btn:hover .main-dashboard__enter-btn-glow {
+  opacity: 1;
+}
+
+.main-dashboard__enter-btn:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Mission Preview Section */
+.main-dashboard__missions-preview {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 212, 255, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: missionsSlideUp 1s ease-out 1.8s forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes missionsSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-dashboard__missions-title {
+  font-size: 1.1rem;
+  color: #00D4FF;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.main-dashboard__missions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.main-dashboard__mission-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.main-dashboard__mission-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.main-dashboard__mission-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.main-dashboard__mission-card:hover::before {
+  opacity: 1;
+}
+
+.main-dashboard__mission-card:focus {
+  outline: 2px solid #00D4FF;
+  outline-offset: 2px;
+}
+
+.main-dashboard__mission-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.main-dashboard__mission-info {
+  flex: 1;
+  text-align: left;
+}
+
+.main-dashboard__mission-title {
+  font-size: 1rem;
+  color: white;
+  margin: 0 0 0.3rem 0;
+  font-weight: bold;
+}
+
+.main-dashboard__mission-subtitle {
+  font-size: 0.8rem;
+  color: #D0D0D0;
+  margin: 0;
+}
+
+.main-dashboard__mission-badge {
+  background: linear-gradient(135deg, #00D4FF 0%, #0099CC 100%);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.main-dashboard__mission-card--new .main-dashboard__mission-badge {
+  background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+}
+
+.main-dashboard__mission-card--power .main-dashboard__mission-badge {
+  background: linear-gradient(135deg, #FF9500 0%, #FF6B35 100%);
+}
+
+.main-dashboard__mission-card--completed .main-dashboard__mission-badge {
+  background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+}
+
+/* Error States */
+.main-dashboard__mission-card--error {
+  border-color: rgba(244, 67, 54, 0.5);
+  background: rgba(244, 67, 54, 0.1);
+  cursor: not-allowed;
+  animation: errorCardPulse 2s ease-in-out infinite;
+}
+
+.main-dashboard__mission-card--error:hover {
+  border-color: #F44336;
+  box-shadow: 0 10px 30px rgba(244, 67, 54, 0.2);
+  transform: none;
+}
+
+.main-dashboard__mission-card--error:focus {
+  outline: 2px solid #F44336;
+}
+
+.main-dashboard__mission-card--error .main-dashboard__mission-title {
+  color: #F44336;
+}
+
+.main-dashboard__mission-card--error .main-dashboard__mission-subtitle {
+  color: rgba(244, 67, 54, 0.8);
+}
+
+@keyframes errorCardPulse {
+  0%, 100% {
+    border-color: rgba(244, 67, 54, 0.3);
+  }
+  50% {
+    border-color: rgba(244, 67, 54, 0.6);
+  }
+}
+
+/* Error Notification */
+.main-dashboard__error-notification {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  max-width: 400px;
+  animation: errorSlideIn 0.3s ease-out;
+}
+
+.main-dashboard__error-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(248, 113, 113, 0.95);
+  color: white;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 
+    0 10px 25px rgba(248, 113, 113, 0.3),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.main-dashboard__error-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.main-dashboard__error-text {
+  flex: 1;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.main-dashboard__error-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.main-dashboard__error-close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes errorSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Status Indicators */
+.main-dashboard__status {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 15;
+  opacity: 0;
+  animation: statusFade 1s ease-out 2s forwards;
+}
+
+@keyframes statusFade {
+  to {
+    opacity: 1;
+  }
+}
+
+.main-dashboard__status-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.main-dashboard__status-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 70px;
+}
+
+.main-dashboard__status-value {
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.main-dashboard__status-value--online {
+  color: #00ff88;
+}
+
+.main-dashboard__status-value--offline {
+  color: #F44336;
+}
+
+.main-dashboard__status-value--maintenance {
+  color: #FF9500;
+}
+
+.main-dashboard__status-value--stable {
+  color: #00D4FF;
+}
+
+.main-dashboard__status-value--unstable {
+  color: #FF9500;
+}
+
+.main-dashboard__status-value--disconnected {
+  color: #F44336;
+}
+
+.main-dashboard__status-value--ready {
+  color: #FFD700;
+}
+
+/* Floating Elements */
+.main-dashboard__floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.main-dashboard__floating-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(0, 212, 255, 0.6);
+  border-radius: 50%;
+  animation: floatingParticle 12s ease-in-out infinite;
+}
+
+.main-dashboard__floating-particle--1 {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.main-dashboard__floating-particle--2 {
+  top: 60%;
+  right: 20%;
+  background: rgba(255, 215, 0, 0.6);
+  animation-delay: -4s;
+}
+
+.main-dashboard__floating-particle--3 {
+  top: 80%;
+  left: 60%;
+  background: rgba(78, 205, 196, 0.6);
+  animation-delay: -8s;
+}
+
+@keyframes floatingParticle {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px) scale(0.8);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-30px) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+/* Error Fallback UI */
+.main-dashboard--error {
+  background: radial-gradient(
+    ellipse at center,
+    #4a1a1a 0%,
+    #2a0505 50%,
+    #1a0202 100%
+  );
+}
+
+.main-dashboard__error-fallback {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.main-dashboard__error-fallback .main-dashboard__error-icon {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.main-dashboard__error-fallback h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #F44336;
+  text-shadow: 0 0 20px rgba(244, 67, 54, 0.5);
+}
+
+.main-dashboard__error-fallback p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.main-dashboard__error-reload {
+  background: linear-gradient(135deg, #F44336 0%, #D32F2F 100%);
+  border: 2px solid #F44336;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+}
+
+.main-dashboard__error-reload:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(244, 67, 54, 0.4);
+  border-color: #FF5722;
+}
+
+.main-dashboard__error-reload:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .main-dashboard__content {
+    grid-template-columns: 150px 1fr 150px;
+    gap: 1.5rem;
+  }
+
+  .main-dashboard__nasa-logo {
+    font-size: 2.8rem;
+  }
+
+  .main-dashboard__title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .main-dashboard {
+    padding: 1rem;
+  }
+
+  .main-dashboard__content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    min-height: 100vh;
+    text-align: center;
+  }
+
+  .main-dashboard__nav-left,
+  .main-dashboard__nav-right {
+    grid-column: 1;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .main-dashboard__nav-left {
+    grid-row: 1;
+  }
+
+  .main-dashboard__center {
+    grid-row: 2;
+    min-height: 300px;
+  }
+
+  .main-dashboard__nav-right {
+    grid-row: 3;
+  }
+
+  .main-dashboard__missions-preview {
+    grid-row: 4;
+  }
+
+  .main-dashboard__missions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-dashboard__error-notification {
+    top: 1rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-dashboard__nasa-logo {
+    font-size: 2.2rem;
+  }
+
+  .main-dashboard__title {
+    font-size: 1.5rem;
+  }
+
+  .main-dashboard__subtitle {
+    font-size: 1.1rem;
+  }
+
+  .main-dashboard__enter-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  .main-dashboard__status {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-bottom: 2rem;
+  }
+
+  .main-dashboard__error-content {
+    padding: 0.75rem 1rem;
+  }
+
+  .main-dashboard__error-fallback h1 {
+    font-size: 1.5rem;
+  }
+
+  .main-dashboard__error-fallback p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-dashboard__nav-left,
+  .main-dashboard__nav-right {
+    flex-wrap: wrap;
+  }
+
+  .main-dashboard__mission-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .main-dashboard__floating-particle {
+    width: 4px;
+    height: 4px;
+  }
+
+  .main-dashboard__error-reload {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Performance optimizations */
+.main-dashboard *,
+.main-dashboard *::before,
+.main-dashboard *::after {
+  backface-visibility: hidden;
+}
+
+.main-dashboard__panel,
+.main-dashboard__planet-container,
+.main-dashboard__nav-left,
+.main-dashboard__nav-right,
+.main-dashboard__welcome,
+.main-dashboard__enter-btn,
+.main-dashboard__missions-preview {
+  will-change: transform, opacity;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .main-dashboard__panel,
+  .main-dashboard__planet-container,
+  .main-dashboard__nav-left,
+  .main-dashboard__nav-right,
+  .main-dashboard__welcome,
+  .main-dashboard__enter-btn,
+  .main-dashboard__missions-preview {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .main-dashboard__floating-particle {
+    display: none;
+  }
+
+  .main-dashboard__mission-card--error {
+    animation: none;
+  }
+
+  .main-dashboard__error-notification {
+    animation: none;
+  }
+}

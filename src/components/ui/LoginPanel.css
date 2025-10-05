@@ -1,0 +1,431 @@
+.login-panel {
+  background: rgba(15, 23, 42, 0.95);
+  -webkit--backdrop-filter: blur(15px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 20px;
+  padding: 40px;
+  width: 420px;
+  text-align: center;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.8), transparent);
+}
+
+/* Logo NASA */
+.nasa-logo {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-circle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border: 3px solid #3b82f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+  animation: logo-pulse 3s ease-in-out infinite;
+}
+
+.logo-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #60a5fa;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+}
+
+.logo-orbit {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 50%;
+  border-top-color: #3b82f6;
+  animation: orbit 4s linear infinite;
+}
+
+.logo-stars {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+}
+
+.logo-star {
+  position: absolute;
+  color: #fbbf24;
+  font-size: 12px;
+  animation: star-twinkle 2s ease-in-out infinite alternate;
+}
+
+.logo-star:nth-child(1) {
+  top: 10px;
+  right: 20px;
+  animation-delay: 0s;
+}
+
+.logo-star:nth-child(2) {
+  bottom: 15px;
+  left: 15px;
+  animation-delay: 0.7s;
+}
+
+.logo-star:nth-child(3) {
+  top: 50%;
+  right: 5px;
+  animation-delay: 1.4s;
+}
+
+@keyframes logo-pulse {
+  0%, 100% { 
+    transform: scale(1); 
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); 
+  }
+  50% { 
+    transform: scale(1.05); 
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); 
+  }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes star-twinkle {
+  0% { 
+    opacity: 0.5; 
+    transform: scale(0.8); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1.2); 
+  }
+}
+
+/* Títulos */
+.login-header {
+  margin-bottom: 32px;
+}
+
+.main-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f1f5f9;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Mensaje de error */
+.error-message {
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fca5a5;
+  font-size: 14px;
+  text-align: left;
+  animation: shake 0.5s ease-in-out;
+}
+
+.error-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* Formulario */
+.login-form {
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(30, 41, 59, 0.8);
+  border: 2px solid rgba(71, 85, 105, 0.5);
+  border-radius: 12px;
+  color: #f1f5f9;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: rgba(30, 41, 59, 0.95);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-group input::placeholder {
+  color: #64748b;
+}
+
+.form-group input:invalid {
+  border-color: rgba(220, 38, 38, 0.5);
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.password-toggle:hover {
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.password-toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.password-toggle:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Botón de login */
+.login-button {
+  position: relative;
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+.login-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.login-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login-button:focus {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+.button-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.rocket-icon {
+  animation: rocket-bounce 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.button-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.login-button:hover:not(:disabled) .button-glow {
+  left: 100%;
+}
+
+@keyframes rocket-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: spin 1s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Enlaces */
+.login-links {
+  margin-top: 24px;
+}
+
+.forgot-password {
+  background: none;
+  border: none;
+  color: #60a5fa;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-family: inherit;
+}
+
+.forgot-password:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+.forgot-password:focus {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .login-panel {
+    width: 100%;
+    max-width: 380px;
+    padding: 32px 24px;
+  }
+  
+  .main-title {
+    font-size: 20px;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+  }
+  
+  .logo-circle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .logo-text {
+    font-size: 14px;
+  }
+  
+  .form-group input {
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+  
+  .login-button {
+    padding: 14px 20px;
+  }
+}
+
+/* Estados de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .logo-circle,
+  .logo-orbit,
+  .logo-star,
+  .rocket-icon,
+  .loading-spinner,
+  .error-message {
+    animation: none;
+  }
+  
+  .login-button,
+  .password-toggle,
+  .form-group input {
+    transition: none;
+  }
+}

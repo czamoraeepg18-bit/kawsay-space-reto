@@ -1,0 +1,203 @@
+/* ConnectionLines.css */
+
+.connection-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.connection-lines__svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Base line styles */
+.connection-lines__line {
+  transition: all 0.5s ease;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.connection-lines__line--active {
+  animation: lineGlow 2s ease-in-out infinite alternate;
+}
+
+.connection-lines__line--completed {
+  stroke-dasharray: none;
+  animation: completedPulse 3s ease-in-out infinite;
+}
+
+.connection-lines__line--locked {
+  stroke-dasharray: 5, 5;
+  animation: lockedDash 2s linear infinite;
+}
+
+/* Animated flow effect */
+.connection-lines__flow {
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  animation: flowAnimation 3s linear infinite;
+}
+
+/* Connection nodes */
+.connection-lines__node {
+  transition: all 0.3s ease;
+  vector-effect: non-scaling-stroke;
+}
+
+.connection-lines__node:hover {
+  r: 2.5;
+  fill: #00ff88;
+}
+
+/* Animations */
+@keyframes lineGlow {
+  0% {
+    stroke-opacity: 0.4;
+    filter: drop-shadow(0 0 2px rgba(0, 212, 255, 0.5));
+  }
+  100% {
+    stroke-opacity: 0.8;
+    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.8));
+  }
+}
+
+@keyframes completedPulse {
+  0%, 100% {
+    stroke-opacity: 0.6;
+    filter: drop-shadow(0 0 3px rgba(52, 199, 89, 0.6));
+  }
+  50% {
+    stroke-opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(52, 199, 89, 1));
+  }
+}
+
+@keyframes lockedDash {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 10;
+  }
+}
+
+@keyframes flowAnimation {
+  0% {
+    stroke-dasharray: 0, 50;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 25, 25;
+    stroke-dashoffset: -12.5;
+  }
+  100% {
+    stroke-dasharray: 0, 50;
+    stroke-dashoffset: -50;
+  }
+}
+
+/* Special effects for different connection types */
+.connection-lines__line--earth {
+  filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.6));
+}
+
+.connection-lines__line--mars {
+  filter: drop-shadow(0 0 4px rgba(255, 107, 53, 0.6));
+}
+
+.connection-lines__line--moon {
+  filter: drop-shadow(0 0 4px rgba(224, 224, 224, 0.6));
+}
+
+.connection-lines__line--europa {
+  filter: drop-shadow(0 0 4px rgba(78, 205, 196, 0.6));
+}
+
+.connection-lines__line--paracas {
+  filter: drop-shadow(0 0 4px rgba(155, 89, 182, 0.6));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .connection-lines__line {
+    stroke-width: 1;
+  }
+  
+  .connection-lines__line--active {
+    stroke-width: 1.2;
+  }
+  
+  .connection-lines__line--completed {
+    stroke-width: 1.5;
+  }
+  
+  .connection-lines__flow {
+    stroke-width: 2;
+  }
+  
+  .connection-lines__node {
+    r: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .connection-lines__line {
+    stroke-width: 0.8;
+  }
+  
+  .connection-lines__line--active {
+    stroke-width: 1;
+  }
+  
+  .connection-lines__line--completed {
+    stroke-width: 1.2;
+  }
+  
+  .connection-lines__flow {
+    stroke-width: 1.5;
+  }
+  
+  .connection-lines__node {
+    r: 0.8;
+  }
+}
+
+/* Performance optimizations */
+.connection-lines__line,
+.connection-lines__flow,
+.connection-lines__node {
+  will-change: stroke-opacity, filter;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .connection-lines__line--active,
+  .connection-lines__line--completed,
+  .connection-lines__line--locked,
+  .connection-lines__flow {
+    animation: none;
+  }
+  
+  .connection-lines__line--active {
+    stroke-opacity: 0.6;
+    filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.6));
+  }
+  
+  .connection-lines__line--completed {
+    stroke-opacity: 0.8;
+    filter: drop-shadow(0 0 6px rgba(52, 199, 89, 0.8));
+  }
+  
+  .connection-lines__line--locked {
+    stroke-dasharray: 5, 5;
+    stroke-dashoffset: 0;
+  }
+}

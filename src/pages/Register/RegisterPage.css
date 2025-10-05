@@ -1,0 +1,1135 @@
+/* RegisterPage.css - Página de registro con fondo estrellado */
+
+.register-page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at bottom, #0d1421 0%, #0c0e19 25%, #02040a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fondo de estrellas dinámico - Campo estelar denso */
+.stars-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.star-bg {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  animation: twinkle-bg linear infinite;
+}
+
+.star-1 {
+  width: 1px;
+  height: 1px;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.9);
+}
+
+.star-2 {
+  width: 2px;
+  height: 2px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+}
+
+.star-3 {
+  width: 1.5px;
+  height: 1.5px;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 1);
+}
+
+.star-4 {
+  width: 2.5px;
+  height: 2.5px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.star-5 {
+  width: 1.2px;
+  height: 1.2px;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+}
+
+/* Estrellas adicionales más grandes y brillantes */
+.star-6 {
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(135, 206, 250, 0.4);
+}
+
+.star-7 {
+  width: 2.8px;
+  height: 2.8px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 0 12px rgba(255, 255, 255, 0.7),
+    0 0 24px rgba(255, 182, 193, 0.3);
+}
+
+.star-8 {
+  width: 3.5px;
+  height: 3.5px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.9),
+    0 0 30px rgba(173, 216, 230, 0.4);
+}
+
+.star-9 {
+  width: 1.8px;
+  height: 1.8px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 0 6px rgba(255, 255, 255, 0.6),
+    0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.star-10 {
+  width: 2.2px;
+  height: 2.2px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 0 8px rgba(255, 255, 255, 0.7),
+    0 0 16px rgba(255, 255, 255, 0.3);
+}
+
+/* Animación de parpadeo para estrellas */
+@keyframes twinkle-bg {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  75% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+/* Nebulosas de fondo */
+.nebula {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float-nebula 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.nebula-1 {
+  width: 300px;
+  height: 200px;
+  background: radial-gradient(ellipse, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+  top: 10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.nebula-2 {
+  width: 250px;
+  height: 180px;
+  background: radial-gradient(ellipse, rgba(30, 144, 255, 0.2) 0%, transparent 70%);
+  bottom: 20%;
+  right: -5%;
+  animation-delay: -10s;
+}
+
+.nebula-3 {
+  width: 200px;
+  height: 150px;
+  background: radial-gradient(ellipse, rgba(255, 20, 147, 0.15) 0%, transparent 70%);
+  top: 50%;
+  right: 20%;
+  animation-delay: -5s;
+}
+
+.nebula-4 {
+  width: 180px;
+  height: 120px;
+  background: radial-gradient(ellipse, rgba(50, 255, 126, 0.12) 0%, transparent 70%);
+  top: 70%;
+  left: 15%;
+  animation-delay: -15s;
+}
+
+/* Animación de flotación para nebulosas */
+@keyframes float-nebula {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -20px) rotate(1deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(-1deg);
+  }
+}
+
+/* Contenido principal */
+.register-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Elementos decorativos cósmicos */
+.cosmic-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: orbit 30s linear infinite;
+}
+
+.planet-1 {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, #ff6b6b, #ee5a52, #d63447);
+  top: 15%;
+  right: 10%;
+  animation-duration: 25s;
+  box-shadow: 
+    0 0 20px rgba(255, 107, 107, 0.3),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.planet-2 {
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at 30% 30%, #4ecdc4, #44a08d, #2d5a87);
+  bottom: 25%;
+  left: 8%;
+  animation-duration: 40s;
+  animation-direction: reverse;
+  box-shadow: 
+    0 0 15px rgba(78, 205, 196, 0.3),
+    inset -8px -8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.planet-3 {
+  width: 35px;
+  height: 35px;
+  background: radial-gradient(circle at 25% 25%, #f39c12, #e67e22, #d35400);
+  top: 60%;
+  right: 25%;
+  animation-duration: 35s;
+  box-shadow: 
+    0 0 18px rgba(243, 156, 18, 0.4),
+    inset -7px -7px 14px rgba(0, 0, 0, 0.4);
+}
+
+.planet-4 {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 35% 35%, #9b59b6, #8e44ad, #663399);
+  top: 30%;
+  left: 15%;
+  animation-duration: 50s;
+  animation-direction: reverse;
+  box-shadow: 
+    0 0 25px rgba(155, 89, 182, 0.35),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.planet-5 {
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle at 40% 40%, #1abc9c, #16a085, #0e6b5d);
+  bottom: 40%;
+  right: 15%;
+  animation-duration: 45s;
+  box-shadow: 
+    0 0 12px rgba(26, 188, 156, 0.4),
+    inset -6px -6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.planet-6 {
+  width: 45px;
+  height: 45px;
+  background: radial-gradient(circle at 30% 30%, #e74c3c, #c0392b, #a93226);
+  bottom: 60%;
+  left: 25%;
+  animation-duration: 30s;
+  animation-direction: reverse;
+  box-shadow: 
+    0 0 22px rgba(231, 76, 60, 0.3),
+    inset -9px -9px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Animación de órbita para planetas */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(20px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(20px) rotate(-360deg);
+  }
+}
+
+/* Estrellas fugaces múltiples - Versión brillante mejorada */
+.shooting-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 
+    0 0 10px #ffffff,
+    0 0 20px #ffffff,
+    0 0 30px rgba(135, 206, 250, 0.8);
+  z-index: 8;
+}
+
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -80px;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0.9) 60%,
+    #ffffff 90%
+  );
+  transform: rotate(-45deg);
+  box-shadow: 0 0 15px rgba(135, 206, 250, 0.6);
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -120px;
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(135, 206, 250, 0.4) 70%,
+    rgba(255, 255, 255, 0.8) 95%
+  );
+  transform: rotate(-45deg);
+}
+
+.shooting-star-1 {
+  top: 20%;
+  right: 80%;
+  animation: shooting-1 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.shooting-star-2 {
+  top: 40%;
+  right: 90%;
+  animation: shooting-2 12s ease-in-out infinite;
+  animation-delay: 6s;
+}
+
+.shooting-star-3 {
+  top: 70%;
+  right: 85%;
+  animation: shooting-3 10s ease-in-out infinite;
+  animation-delay: 12s;
+}
+
+/* Lluvia de meteoritos */
+.meteor-shower {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.meteor {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Meteorito principal - Dorado */
+.meteor-1 {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ffffff 0%, #ffeb3b 30%, #ff9800 70%, #ff5722 100%);
+  top: 5%;
+  right: 95%;
+  box-shadow: 
+    0 0 20px #ffeb3b,
+    0 0 40px #ff9800,
+    0 0 60px #ff5722,
+    0 0 80px rgba(255, 152, 0, 0.4);
+  animation: meteor-fall-1 6s ease-in infinite;
+  animation-delay: 2s;
+}
+
+/* Meteorito azul */
+.meteor-2 {
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #ffffff 0%, #00bcd4 30%, #0288d1 70%, #01579b 100%);
+  top: 10%;
+  right: 85%;
+  box-shadow: 
+    0 0 15px #00bcd4,
+    0 0 30px #0288d1,
+    0 0 45px #01579b,
+    0 0 60px rgba(2, 136, 209, 0.3);
+  animation: meteor-fall-2 7s ease-in infinite;
+  animation-delay: 5s;
+}
+
+/* Meteorito verde */
+.meteor-3 {
+  width: 5px;
+  height: 5px;
+  background: radial-gradient(circle, #ffffff 0%, #4caf50 30%, #2e7d32 70%, #1b5e20 100%);
+  top: 15%;
+  left: 85%;
+  box-shadow: 
+    0 0 12px #4caf50,
+    0 0 25px #2e7d32,
+    0 0 40px #1b5e20,
+    0 0 55px rgba(76, 175, 80, 0.3);
+  animation: meteor-fall-3 8s ease-in infinite;
+  animation-delay: 8s;
+}
+
+/* Meteorito púrpura */
+.meteor-4 {
+  width: 7px;
+  height: 7px;
+  background: radial-gradient(circle, #ffffff 0%, #9c27b0 30%, #7b1fa2 70%, #4a148c 100%);
+  top: 8%;
+  right: 70%;
+  box-shadow: 
+    0 0 18px #9c27b0,
+    0 0 35px #7b1fa2,
+    0 0 50px #4a148c,
+    0 0 70px rgba(156, 39, 176, 0.3);
+  animation: meteor-fall-4 9s ease-in infinite;
+  animation-delay: 12s;
+}
+
+/* Meteorito rojo pequeño */
+.meteor-5 {
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ffffff 0%, #f44336 30%, #d32f2f 70%, #b71c1c 100%);
+  top: 20%;
+  left: 90%;
+  box-shadow: 
+    0 0 10px #f44336,
+    0 0 20px #d32f2f,
+    0 0 35px #b71c1c,
+    0 0 50px rgba(244, 67, 54, 0.3);
+  animation: meteor-fall-5 5s ease-in infinite;
+  animation-delay: 15s;
+}
+
+/* Meteorito plateado */
+.meteor-6 {
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #ffffff 0%, #e0e0e0 30%, #9e9e9e 70%, #424242 100%);
+  top: 12%;
+  right: 60%;
+  box-shadow: 
+    0 0 15px #e0e0e0,
+    0 0 30px #9e9e9e,
+    0 0 45px #424242,
+    0 0 60px rgba(224, 224, 224, 0.3);
+  animation: meteor-fall-6 10s ease-in infinite;
+  animation-delay: 18s;
+}
+
+/* Colas de meteoritos con múltiples efectos */
+.meteor-1::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -150px;
+  width: 150px;
+  height: 8px;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(255, 235, 59, 0.1) 10%,
+    rgba(255, 235, 59, 0.3) 30%,
+    rgba(255, 152, 0, 0.6) 60%,
+    rgba(255, 87, 34, 0.8) 80%,
+    #ffffff 95%
+  );
+  transform: rotate(-30deg);
+  border-radius: 4px;
+  box-shadow: 
+    0 0 25px rgba(255, 152, 0, 0.6),
+    0 0 50px rgba(255, 87, 34, 0.3);
+}
+
+.meteor-1::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -250px;
+  width: 250px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(255, 235, 59, 0.05) 20%,
+    rgba(255, 152, 0, 0.2) 50%,
+    rgba(255, 87, 34, 0.4) 80%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  transform: rotate(-30deg);
+  border-radius: 2px;
+}
+
+.meteor-2::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -120px;
+  width: 120px;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(0, 188, 212, 0.2) 20%,
+    rgba(2, 136, 209, 0.5) 60%,
+    rgba(1, 87, 155, 0.8) 80%,
+    #ffffff 95%
+  );
+  transform: rotate(-45deg);
+  border-radius: 3px;
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
+}
+
+.meteor-3::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -100px;
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, 
+    #ffffff 5%,
+    rgba(76, 175, 80, 0.8) 20%,
+    rgba(46, 125, 50, 0.5) 60%,
+    rgba(27, 94, 32, 0.2) 80%,
+    transparent
+  );
+  transform: rotate(135deg);
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.4);
+}
+
+.meteor-4::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -130px;
+  width: 130px;
+  height: 7px;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(156, 39, 176, 0.2) 20%,
+    rgba(123, 31, 162, 0.6) 60%,
+    rgba(74, 20, 140, 0.8) 80%,
+    #ffffff 95%
+  );
+  transform: rotate(-35deg);
+  border-radius: 4px;
+  box-shadow: 0 0 22px rgba(156, 39, 176, 0.5);
+}
+
+.meteor-5::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -80px;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    #ffffff 5%,
+    rgba(244, 67, 54, 0.8) 20%,
+    rgba(211, 47, 47, 0.5) 60%,
+    rgba(183, 28, 28, 0.2) 80%,
+    transparent
+  );
+  transform: rotate(140deg);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(244, 67, 54, 0.4);
+}
+
+.meteor-6::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -110px;
+  width: 110px;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(224, 224, 224, 0.2) 20%,
+    rgba(158, 158, 158, 0.5) 60%,
+    rgba(66, 66, 66, 0.8) 80%,
+    #ffffff 95%
+  );
+  transform: rotate(-40deg);
+  border-radius: 3px;
+  box-shadow: 0 0 18px rgba(224, 224, 224, 0.4);
+}
+
+/* Animaciones individuales para cada meteorito */
+@keyframes meteor-fall-1 {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.3);
+  }
+  3% {
+    opacity: 0.8;
+    transform: translate(-50px, 50px) scale(0.7);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-150px, 150px) scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-300px, 300px) scale(1.2);
+  }
+  30% {
+    opacity: 0.8;
+    transform: translate(-500px, 500px) scale(1);
+  }
+  45% {
+    opacity: 0.3;
+    transform: translate(-700px, 700px) scale(0.5);
+  }
+  60% {
+    opacity: 0;
+    transform: translate(-900px, 900px) scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-900px, 900px) scale(0.2);
+  }
+}
+
+@keyframes meteor-fall-2 {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4);
+  }
+  5% {
+    opacity: 0.9;
+    transform: translate(-80px, 60px) scale(0.8);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-200px, 150px) scale(1.1);
+  }
+  25% {
+    opacity: 0.9;
+    transform: translate(-350px, 260px) scale(1);
+  }
+  40% {
+    opacity: 0.4;
+    transform: translate(-500px, 380px) scale(0.6);
+  }
+  55% {
+    opacity: 0;
+    transform: translate(-650px, 500px) scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-650px, 500px) scale(0.2);
+  }
+}
+
+@keyframes meteor-fall-3 {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.3);
+  }
+  4% {
+    opacity: 0.7;
+    transform: translate(70px, 50px) scale(0.7);
+  }
+  12% {
+    opacity: 1;
+    transform: translate(180px, 130px) scale(1);
+  }
+  22% {
+    opacity: 0.8;
+    transform: translate(320px, 230px) scale(0.9);
+  }
+  35% {
+    opacity: 0.5;
+    transform: translate(480px, 350px) scale(0.6);
+  }
+  50% {
+    opacity: 0;
+    transform: translate(600px, 450px) scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(600px, 450px) scale(0.2);
+  }
+}
+
+@keyframes meteor-fall-4 {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.4);
+  }
+  4% {
+    opacity: 0.8;
+    transform: translate(-60px, 70px) scale(0.8);
+  }
+  14% {
+    opacity: 1;
+    transform: translate(-170px, 180px) scale(1.1);
+  }
+  24% {
+    opacity: 0.9;
+    transform: translate(-300px, 320px) scale(1);
+  }
+  38% {
+    opacity: 0.6;
+    transform: translate(-450px, 480px) scale(0.7);
+  }
+  52% {
+    opacity: 0.2;
+    transform: translate(-600px, 640px) scale(0.3);
+  }
+  70% {
+    opacity: 0;
+    transform: translate(-750px, 800px) scale(0.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-750px, 800px) scale(0.1);
+  }
+}
+
+@keyframes meteor-fall-5 {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+  6% {
+    opacity: 0.9;
+    transform: translate(50px, 40px) scale(0.9);
+  }
+  18% {
+    opacity: 1;
+    transform: translate(140px, 120px) scale(1.2);
+  }
+  30% {
+    opacity: 0.8;
+    transform: translate(250px, 220px) scale(1);
+  }
+  45% {
+    opacity: 0.4;
+    transform: translate(380px, 340px) scale(0.6);
+  }
+  60% {
+    opacity: 0;
+    transform: translate(500px, 450px) scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(500px, 450px) scale(0.2);
+  }
+}
+
+@keyframes meteor-fall-6 {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.3);
+  }
+  3% {
+    opacity: 0.7;
+    transform: translate(-70px, 80px) scale(0.7);
+  }
+  11% {
+    opacity: 1;
+    transform: translate(-190px, 220px) scale(1);
+  }
+  21% {
+    opacity: 0.9;
+    transform: translate(-330px, 380px) scale(1.1);
+  }
+  33% {
+    opacity: 0.7;
+    transform: translate(-490px, 560px) scale(0.9);
+  }
+  47% {
+    opacity: 0.3;
+    transform: translate(-650px, 740px) scale(0.5);
+  }
+  65% {
+    opacity: 0;
+    transform: translate(-800px, 900px) scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-800px, 900px) scale(0.2);
+  }
+}
+
+/* Animaciones para diferentes estrellas fugaces - Versión mejorada */
+@keyframes shooting-1 {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-45deg) scale(0.3);
+  }
+  5% {
+    opacity: 0.8;
+    transform: translate(-20px, 20px) rotate(-45deg) scale(0.7);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-80px, 80px) rotate(-45deg) scale(1);
+  }
+  25% {
+    opacity: 0.9;
+    transform: translate(-150px, 150px) rotate(-45deg) scale(1.1);
+  }
+  35% {
+    opacity: 0.3;
+    transform: translate(-250px, 250px) rotate(-45deg) scale(0.8);
+  }
+  50% {
+    opacity: 0;
+    transform: translate(-350px, 350px) rotate(-45deg) scale(0.3);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-350px, 350px) rotate(-45deg) scale(0.3);
+  }
+}
+
+@keyframes shooting-2 {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-30deg) scale(0.4);
+  }
+  4% {
+    opacity: 0.9;
+    transform: translate(-30px, 15px) rotate(-30deg) scale(0.8);
+  }
+  12% {
+    opacity: 1;
+    transform: translate(-120px, 60px) rotate(-30deg) scale(1.2);
+  }
+  20% {
+    opacity: 0.8;
+    transform: translate(-200px, 100px) rotate(-30deg) scale(1);
+  }
+  28% {
+    opacity: 0.4;
+    transform: translate(-300px, 150px) rotate(-30deg) scale(0.6);
+  }
+  40% {
+    opacity: 0;
+    transform: translate(-400px, 200px) rotate(-30deg) scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-400px, 200px) rotate(-30deg) scale(0.2);
+  }
+}
+
+@keyframes shooting-3 {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-60deg) scale(0.5);
+  }
+  6% {
+    opacity: 0.8;
+    transform: translate(-25px, 40px) rotate(-60deg) scale(0.9);
+  }
+  16% {
+    opacity: 1;
+    transform: translate(-100px, 160px) rotate(-60deg) scale(1.1);
+  }
+  26% {
+    opacity: 0.7;
+    transform: translate(-180px, 280px) rotate(-60deg) scale(0.9);
+  }
+  36% {
+    opacity: 0.2;
+    transform: translate(-250px, 400px) rotate(-60deg) scale(0.4);
+  }
+  50% {
+    opacity: 0;
+    transform: translate(-300px, 480px) rotate(-60deg) scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-300px, 480px) rotate(-60deg) scale(0.2);
+  }
+}
+
+@keyframes shooting-4 {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-135deg) scale(0.3);
+  }
+  3% {
+    opacity: 0.9;
+    transform: translate(40px, 30px) rotate(-135deg) scale(0.7);
+  }
+  8% {
+    opacity: 1;
+    transform: translate(120px, 90px) rotate(-135deg) scale(1.2);
+  }
+  15% {
+    opacity: 0.8;
+    transform: translate(200px, 150px) rotate(-135deg) scale(1);
+  }
+  25% {
+    opacity: 0.3;
+    transform: translate(300px, 230px) rotate(-135deg) scale(0.5);
+  }
+  35% {
+    opacity: 0;
+    transform: translate(380px, 290px) rotate(-135deg) scale(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(380px, 290px) rotate(-135deg) scale(0.2);
+  }
+}
+
+/* Capa de partículas adicionales */
+.register-page::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 50px 80px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 120px 40px, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 200px 120px, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 300px 60px, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 400px 150px, rgba(255,255,255,0.3), transparent);
+  background-repeat: repeat;
+  background-size: 450px 200px;
+  animation: drift 25s linear infinite;
+  opacity: 0.7;
+  z-index: 4;
+}
+
+/* Animación de deriva para partículas */
+@keyframes drift {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-450px);
+  }
+}
+
+/* Efectos de profundidad con múltiples capas */
+.register-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(119, 198, 255, 0.05) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-page {
+    padding: 1rem;
+  }
+
+  .register-content {
+    max-width: 100%;
+  }
+
+  .nebula-1 {
+    width: 200px;
+    height: 120px;
+    left: -20%;
+  }
+
+  .nebula-2 {
+    width: 180px;
+    height: 100px;
+    right: -15%;
+  }
+
+  .nebula-3 {
+    width: 150px;
+    height: 90px;
+  }
+
+  .nebula-4 {
+    width: 140px;
+    height: 80px;
+  }
+
+  .planet-1 {
+    width: 40px;
+    height: 40px;
+    right: 5%;
+  }
+
+  .planet-2 {
+    width: 30px;
+    height: 30px;
+    left: 5%;
+  }
+
+  .planet-3, .planet-4, .planet-5, .planet-6 {
+    width: 25px;
+    height: 25px;
+  }
+
+  .shooting-star-3, .shooting-star-4 {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-page {
+    padding: 0.5rem;
+  }
+
+  .nebula {
+    display: none; /* Ocultar nebulosas en pantallas muy pequeñas para mejor rendimiento */
+  }
+
+  .planet {
+    display: none; /* Ocultar planetas en pantallas muy pequeñas */
+  }
+
+  .shooting-star {
+    display: none; /* Ocultar estrellas fugaces en pantallas muy pequeñas */
+  }
+
+  .meteor {
+    display: none; /* Ocultar meteoritos en pantallas muy pequeñas */
+  }
+
+  .meteor-shower {
+    display: none; /* Ocultar lluvia de meteoritos completa */
+  }
+}
+
+/* Mejoras para dispositivos con poca potencia */
+@media (prefers-reduced-motion: reduce) {
+  .star-bg,
+  .nebula,
+  .planet,
+  .shooting-star,
+  .meteor,
+  .register-page::after,
+  .register-page::before {
+    animation: none;
+  }
+
+  .star-bg {
+    opacity: 0.5;
+  }
+
+  .nebula {
+    opacity: 0.05;
+  }
+
+  .planet {
+    opacity: 0.3;
+  }
+
+  .shooting-star,
+  .meteor,
+  .meteor-shower {
+    display: none;
+  }
+}
+
+/* Tema de alto contraste */
+@media (prefers-contrast: high) {
+  .register-page {
+    background: #000;
+  }
+
+  .star-bg {
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .nebula {
+    display: none;
+  }
+
+  .planet {
+    opacity: 0.8;
+  }
+}
+
+/* Optimización para impresión */
+@media print {
+  .register-page {
+    background: #fff;
+  }
+
+  .stars-background,
+  .nebula,
+  .cosmic-elements,
+  .shooting-star,
+  .meteor,
+  .register-page::before,
+  .register-page::after {
+    display: none;
+  }
+}

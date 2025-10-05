@@ -1,0 +1,505 @@
+/* UserProfile.css */
+
+.user-profile {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 15px;
+  padding: 1.5rem;
+  -webkit--backdrop-filter: blur(15px);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  min-width: 280px;
+  max-width: 320px;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+/* Header Section */
+.user-profile__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.user-profile__avatar {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.user-profile__avatar-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00D4FF 0%, #0099CC 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 0 20px rgba(0, 212, 255, 0.5),
+    inset -3px -3px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.user-profile__avatar-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.2) 100%);
+  border-radius: 50%;
+}
+
+.user-profile__avatar-icon {
+  font-size: 1.8rem;
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.user-profile__level-badge {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  padding: 0.2rem 0.5rem;
+  z-index: 10;
+}
+
+.user-profile__level-text {
+  font-size: 0.6rem;
+  font-weight: bold;
+  color: #000;
+  letter-spacing: 0.5px;
+}
+
+.user-profile__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-profile__name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00D4FF;
+  margin: 0 0 0.3rem 0;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-profile__title {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Progress Section */
+.user-profile__progress-section {
+  margin-bottom: 1.5rem;
+}
+
+.user-profile__progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.user-profile__progress-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.user-profile__progress-exp {
+  font-size: 0.7rem;
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.user-profile__progress-bar {
+  position: relative;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.user-profile__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00D4FF 0%, #00ff88 100%);
+  border-radius: 4px;
+  transition: width 0.8s ease-out;
+  position: relative;
+}
+
+.user-profile__progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.user-profile__progress-glow {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(0, 212, 255, 0.8);
+  transform: translateY(-50%);
+  opacity: 0.7;
+  filter: blur(2px);
+}
+
+.user-profile__progress-info {
+  text-align: center;
+}
+
+.user-profile__exp-to-next {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+/* Badges Section */
+.user-profile__badges-section {
+  margin-bottom: 1.5rem;
+}
+
+.user-profile__badges-title {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 0.8rem 0;
+  text-align: center;
+}
+
+.user-profile__badges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.user-profile__badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: help;
+}
+
+.user-profile__badge--common {
+  background: linear-gradient(135deg, #666666 0%, #999999 100%);
+  border: 2px solid #AAAAAA;
+}
+
+.user-profile__badge--rare {
+  background: linear-gradient(135deg, #4A90E2 0%, #7BB3F0 100%);
+  border: 2px solid #4A90E2;
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+}
+
+.user-profile__badge--epic {
+  background: linear-gradient(135deg, #9B59B6 0%, #BB6BD9 100%);
+  border: 2px solid #9B59B6;
+  box-shadow: 0 0 15px rgba(155, 89, 182, 0.6);
+}
+
+.user-profile__badge--legendary {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border: 2px solid #FFD700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  animation: legendaryGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes legendaryGlow {
+  from {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  }
+  to {
+    box-shadow: 0 0 25px rgba(255, 215, 0, 1);
+  }
+}
+
+.user-profile__badge--empty {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  opacity: 0.5;
+}
+
+.user-profile__badge-icon {
+  font-size: 1.2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.user-profile__badge--empty .user-profile__badge-icon {
+  opacity: 0.3;
+}
+
+.user-profile__badge-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.user-profile__badge:not(.user-profile__badge--empty):hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.user-profile__badge:not(.user-profile__badge--empty):hover .user-profile__badge-glow {
+  opacity: 1;
+}
+
+.user-profile__badges-more {
+  text-align: center;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+/* Stats Section */
+.user-profile__stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-profile__stat {
+  text-align: center;
+  flex: 1;
+}
+
+.user-profile__stat-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.user-profile__stat-label {
+  display: block;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.2rem;
+}
+
+/* Decorative Elements */
+.user-profile__decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.user-profile__star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(0, 212, 255, 0.8);
+  border-radius: 50%;
+  animation: starFloat 8s ease-in-out infinite;
+}
+
+.user-profile__star--1 {
+  top: 20%;
+  left: 85%;
+  animation-delay: 0s;
+}
+
+.user-profile__star--2 {
+  top: 60%;
+  right: 90%;
+  background: rgba(255, 215, 0, 0.8);
+  animation-delay: -2.6s;
+}
+
+.user-profile__star--3 {
+  bottom: 25%;
+  left: 15%;
+  background: rgba(255, 107, 157, 0.8);
+  animation-delay: -5.3s;
+}
+
+@keyframes starFloat {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-10px) scale(1.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .user-profile {
+    min-width: 250px;
+    max-width: 280px;
+    padding: 1.2rem;
+  }
+
+  .user-profile__avatar-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .user-profile__avatar-icon {
+    font-size: 1.5rem;
+  }
+
+  .user-profile__name {
+    font-size: 0.9rem;
+  }
+
+  .user-profile__badges-grid {
+    gap: 0.6rem;
+  }
+
+  .user-profile__badge {
+    width: 35px;
+    height: 35px;
+  }
+
+  .user-profile__badge-icon {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-profile {
+    min-width: 220px;
+    max-width: 250px;
+    padding: 1rem;
+  }
+
+  .user-profile__header {
+    gap: 0.8rem;
+  }
+
+  .user-profile__badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .user-profile__badge {
+    width: 32px;
+    height: 32px;
+  }
+
+  .user-profile__badge-icon {
+    font-size: 0.9rem;
+  }
+
+  .user-profile__star {
+    width: 3px;
+    height: 3px;
+  }
+}
+
+/* Performance optimizations */
+.user-profile *,
+.user-profile *::before,
+.user-profile *::after {
+  backface-visibility: hidden;
+}
+
+.user-profile__progress-fill,
+.user-profile__badge,
+.user-profile__star {
+  will-change: transform, opacity;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .user-profile__progress-fill::after,
+  .user-profile__badge--legendary,
+  .user-profile__star {
+    animation: none;
+  }
+  
+  .user-profile__badge:hover {
+    transform: none;
+  }
+  
+  .user-profile__progress-fill {
+    transition: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .user-profile {
+    background: #000000;
+    border: 2px solid #ffffff;
+  }
+  
+  .user-profile__name {
+    color: #ffffff;
+    text-shadow: none;
+  }
+  
+  .user-profile__progress-fill {
+    background: #ffffff;
+  }
+  
+  .user-profile__badge {
+    border-width: 3px;
+  }
+  
+  .user-profile__star {
+    background: #ffffff;
+  }
+}

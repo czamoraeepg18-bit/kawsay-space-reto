@@ -1,0 +1,219 @@
+/* StarMapPage.css */
+
+.star-map-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(
+    ellipse at center,
+    #0a1929 0%,
+    #000510 50%,
+    #000208 100%
+  );
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Back Button */
+.star-map-page__back-button {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 12px;
+  padding: 0.8rem 1.2rem;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit--backdrop-filter: blur(15px);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  outline: none;
+}
+
+.star-map-page__back-button:hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(0, 212, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.star-map-page__back-button:focus {
+  outline: 2px solid rgba(0, 212, 255, 0.8);
+  outline-offset: 2px;
+}
+
+.star-map-page__back-button:active {
+  transform: translateY(0);
+}
+
+.star-map-page__back-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.star-map-page__back-button:hover .star-map-page__back-icon {
+  transform: translateX(-3px);
+}
+
+.star-map-page__back-text {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.star-map-page__back-button:hover .star-map-page__back-text {
+  color: #00D4FF;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+}
+
+/* Loader */
+.star-map-page__loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit--backdrop-filter: blur(10px);
+}
+
+.star-map-page__loader-content {
+  text-align: center;
+  color: white;
+}
+
+.star-map-page__loader-spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(0, 212, 255, 0.3);
+  border-top: 3px solid #00D4FF;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  animation: loaderSpin 1s linear infinite;
+}
+
+@keyframes loaderSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.star-map-page__loader-content p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .star-map-page__back-button {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .star-map-page__back-icon {
+    font-size: 1rem;
+  }
+
+  .star-map-page__loader-spinner {
+    width: 50px;
+    height: 50px;
+    border-width: 2px;
+  }
+
+  .star-map-page__loader-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .star-map-page__back-button {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.7rem;
+    gap: 0.3rem;
+  }
+
+  .star-map-page__back-text {
+    display: none; /* Solo mostrar el ícono en pantallas muy pequeñas */
+  }
+
+  .star-map-page__loader-spinner {
+    width: 40px;
+    height: 40px;
+  }
+
+  .star-map-page__loader-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .star-map-page {
+    background: #000000;
+  }
+  
+  .star-map-page__back-button {
+    background: #000000;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+  }
+  
+  .star-map-page__back-button:hover {
+    background: #ffffff;
+    color: #000000;
+  }
+  
+  .star-map-page__loader {
+    background: #000000;
+  }
+  
+  .star-map-page__loader-spinner {
+    border-color: rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .star-map-page__back-button {
+    transition: none;
+  }
+  
+  .star-map-page__back-button:hover {
+    transform: none;
+  }
+  
+  .star-map-page__back-button:hover .star-map-page__back-icon {
+    transform: none;
+  }
+  
+  .star-map-page__loader-spinner {
+    animation: none;
+    border-top-color: rgba(255, 255, 255, 0.3);
+  }
+}

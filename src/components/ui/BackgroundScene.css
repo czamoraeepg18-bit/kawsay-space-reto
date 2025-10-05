@@ -1,0 +1,80 @@
+/* Montañas andinas más detalladas */
+.mountains {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  z-index: 1;
+}
+
+.mountain {
+  position: absolute;
+  bottom: 0;
+}
+
+/* Montaña izquierda - forma más andina */
+.mountain-1 {
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 300px solid transparent;
+  border-right: 400px solid transparent;
+  border-bottom: 350px solid #4a4033; /* Tierra marrón oscuro */
+  border-radius: 60% 60% 0 0;
+}
+.mountain-1::before {
+  content: '';
+  position: absolute;
+  bottom: 350px;
+  left: -100px;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 200px solid transparent;
+  border-bottom: 200px solid #5c5345; /* Tono más claro */
+}
+
+/* Montaña central - más alta y prominente */
+.mountain-2 {
+  left: 20%;
+  width: 0;
+  height: 0;
+  border-left: 350px solid transparent;
+  border-right: 450px solid transparent;
+  border-bottom: 400px solid #3e2f1a; /* Marrón rojizo */
+  border-radius: 70% 70% 0 0;
+}
+.mountain-2::before {
+  content: '';
+  position: absolute;
+  bottom: 400px;
+  left: -50px;
+  width: 0;
+  height: 0;
+  border-left: 180px solid transparent;
+  border-right: 250px solid transparent;
+  border-bottom: 250px solid #6b5b47; /* Tono intermedio */
+}
+
+/* Montaña derecha - suave pero alta */
+.mountain-3 {
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 320px solid transparent;
+  border-right: 300px solid transparent;
+  border-bottom: 330px solid #4a4033; /* Tierra marrón oscuro */
+  border-radius: 55% 45% 0 0;
+}
+.mountain-3::before {
+  content: '';
+  position: absolute;
+  bottom: 330px;
+  right: -120px;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 180px solid transparent;
+  border-bottom: 220px solid #5c5345; /* Tono más claro */
+}

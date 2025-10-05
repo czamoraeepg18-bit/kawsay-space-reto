@@ -1,0 +1,1220 @@
+/* StarMap.css */
+
+.star-map {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(
+    ellipse at center,
+    #0a1929 0%,
+    #000510 50%,
+    #000208 100%
+  );
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  color: white;
+}
+
+/* Starfield Background */
+.star-map__starfield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.star-map__star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: starTwinkle 3s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+.star-map__star:nth-child(odd) {
+  background: #00D4FF;
+  box-shadow: 0 0 4px #00D4FF;
+}
+
+.star-map__star:nth-child(3n) {
+  background: #FFD700;
+  box-shadow: 0 0 4px #FFD700;
+}
+
+.star-map__star:nth-child(5n) {
+  background: #FF6B9D;
+  box-shadow: 0 0 4px #FF6B9D;
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Nebula Effects */
+.star-map__nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: nebulaFloat 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.star-map__nebula--purple {
+  width: 400px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(138, 43, 226, 0.4) 0%, transparent 70%);
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.star-map__nebula--blue {
+  width: 350px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
+  top: 40%;
+  right: 15%;
+  animation-delay: -7s;
+}
+
+.star-map__nebula--orange {
+  width: 300px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 149, 0, 0.3) 0%, transparent 70%);
+  bottom: 20%;
+  left: 60%;
+  animation-delay: -14s;
+}
+
+@keyframes nebulaFloat {
+  0%, 100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  25% {
+    transform: translateX(20px) translateY(-15px) scale(1.1);
+  }
+  50% {
+    transform: translateX(-10px) translateY(-25px) scale(0.9);
+  }
+  75% {
+    transform: translateX(-20px) translateY(10px) scale(1.05);
+  }
+}
+
+/* User Profile Positioning */
+.star-map__user-profile {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 20;
+}
+
+/* Mission Panel Positioning */
+.star-map__mission-panel {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 20;
+}
+
+/* Connection Lines */
+.star-map__connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Planet Nodes Container */
+.star-map__nodes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* Navigation Bar Positioning */
+.star-map__navigation {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+/* Floating Elements */
+.star-map__floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.star-map__cosmic-dust {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(0, 212, 255, 0.05) 50%,
+    transparent 100%
+  );
+  animation: cosmicDustDrift 15s ease-in-out infinite;
+  filter: blur(20px);
+}
+
+.star-map__cosmic-dust--1 {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.star-map__cosmic-dust--2 {
+  top: 70%;
+  right: 20%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.1) 0%,
+    rgba(255, 149, 0, 0.05) 50%,
+    transparent 100%
+  );
+  animation-delay: -5s;
+}
+
+.star-map__cosmic-dust--3 {
+  bottom: 30%;
+  left: 70%;
+  background: radial-gradient(
+    circle,
+    rgba(138, 43, 226, 0.1) 0%,
+    rgba(255, 107, 157, 0.05) 50%,
+    transparent 100%
+  );
+  animation-delay: -10s;
+}
+
+@keyframes cosmicDustDrift {
+  0%, 100% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateX(30px) translateY(-20px) scale(1.2);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(-15px) translateY(-40px) scale(0.8);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(-25px) translateY(15px) scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .star-map__user-profile {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+  
+  .star-map__mission-panel {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .star-map__navigation {
+    bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .star-map__user-profile {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 1rem;
+    order: 1;
+  }
+  
+  .star-map__mission-panel {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 1rem;
+    order: 3;
+  }
+
+  .star-map__navigation {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 1rem;
+    order: 4;
+  }
+
+  .star-map {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .star-map__nodes {
+    order: 2;
+    position: relative;
+    min-height: 60vh;
+    flex: 1;
+  }
+
+  .star-map__connections {
+    order: 2;
+    position: relative;
+    min-height: 60vh;
+  }
+
+  /* Adjust nebula effects for mobile */
+  .star-map__nebula {
+    filter: blur(40px);
+    opacity: 0.4;
+  }
+
+  .star-map__nebula--purple,
+  .star-map__nebula--blue,
+  .star-map__nebula--orange {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .star-map {
+    padding: 0.5rem;
+  }
+
+  .star-map__user-profile,
+  .star-map__mission-panel {
+    margin: 0.5rem;
+  }
+
+  .star-map__cosmic-dust {
+    width: 60px;
+    height: 60px;
+    filter: blur(15px);
+  }
+
+  .star-map__starfield {
+    opacity: 0.7;
+  }
+
+  .star-map__star {
+    width: 1px;
+    height: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .star-map__nodes {
+    min-height: 50vh;
+  }
+
+  .star-map__nebula {
+    display: none; /* Hide nebulas on very small screens for performance */
+  }
+
+  .star-map__cosmic-dust {
+    display: none; /* Hide cosmic dust on very small screens for performance */
+  }
+}
+
+/* Performance optimizations */
+.star-map *,
+.star-map *::before,
+.star-map *::after {
+  backface-visibility: hidden;
+}
+
+.star-map__starfield,
+.star-map__nebula,
+.star-map__cosmic-dust {
+  will-change: transform, opacity;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .star-map__star,
+  .star-map__nebula,
+  .star-map__cosmic-dust {
+    animation: none;
+  }
+  
+  .star-map__star {
+    opacity: 0.5;
+  }
+  
+  .star-map__nebula {
+    opacity: 0.3;
+  }
+  
+  .star-map__cosmic-dust {
+    opacity: 0.2;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .star-map {
+    background: #000000;
+  }
+  
+  .star-map__star {
+    background: #ffffff;
+    box-shadow: none;
+  }
+  
+  .star-map__nebula,
+  .star-map__cosmic-dust {
+    display: none;
+  }
+}
+
+/* Estilos para las nuevas estrellas */
+.star-map__star--small {
+  width: 1px;
+  height: 1px;
+  background: white;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+.star-map__star--medium {
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.9);
+}
+
+.star-map__star--large {
+  width: 3px;
+  height: 3px;
+  background: white;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 1),
+              0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Estrellas brillantes que titilan */
+.star-map__star--twinkle {
+  width: 2px;
+  height: 2px;
+  background: white;
+  animation: starTwinkleIntense 2.5s ease-in-out infinite !important;
+}
+
+@keyframes starTwinkleIntense {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1),
+                0 0 15px rgba(135, 206, 250, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Meteoritos */
+.star-map__meteor {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: meteorFall 2s linear infinite;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 1),
+              0 0 10px rgba(135, 206, 250, 0.8);
+  z-index: 2;
+}
+
+.star-map__meteor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.9) 20%,
+    rgba(135, 206, 250, 0.7) 50%,
+    rgba(255, 255, 255, 0.5) 80%,
+    transparent 100%);
+  transform: translateX(-100%) translateY(-50%) rotate(-45deg);
+  transform-origin: right center;
+  filter: blur(1px);
+}
+
+.star-map__meteor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%);
+  transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  filter: blur(2px);
+}
+
+@keyframes meteorFall {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0) rotate(-45deg);
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(400px) translateY(400px) rotate(-45deg);
+  }
+}
+
+/* Ajustes para rendimiento en dispositivos móviles */
+@media (max-width: 768px) {
+  .star-map__star--small {
+    display: none; /* Ocultar estrellas pequeñas en móvil */
+  }
+  
+  .star-map__meteor {
+    display: none; /* Ocultar meteoritos en móvil para mejor rendimiento */
+  }
+  
+  .star-map__star--twinkle:nth-child(n+15) {
+    display: none; /* Reducir estrellas titilantes en móvil */
+  }
+}
+
+/* Soporte para modo de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .star-map__meteor {
+    animation: none;
+    display: none;
+  }
+  
+  .star-map__star--twinkle {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+/* ========== CONSTELACIONES ========== */
+.star-map__constellation {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  opacity: 0.4;
+  animation: constellationGlow 8s ease-in-out infinite;
+}
+
+.constellation-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8),
+              0 0 10px rgba(135, 206, 250, 0.5);
+}
+
+.constellation-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.constellation-lines line {
+  stroke: rgba(135, 206, 250, 0.3);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+@keyframes constellationGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* ========== GALAXIAS ========== */
+.star-map__galaxy {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: galaxyRotate 40s linear infinite;
+}
+
+.star-map__galaxy--spiral {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(ellipse at center,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(135, 206, 250, 0.2) 30%,
+    rgba(138, 43, 226, 0.15) 60%,
+    transparent 100%);
+  box-shadow: 0 0 20px rgba(135, 206, 250, 0.4),
+              inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.star-map__galaxy--elliptical {
+  width: 60px;
+  height: 40px;
+  background: radial-gradient(ellipse at center,
+    rgba(255, 215, 0, 0.3) 0%,
+    rgba(255, 149, 0, 0.2) 50%,
+    transparent 100%);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  animation-duration: 50s;
+  animation-direction: reverse;
+}
+
+@keyframes galaxyRotate {
+  from { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  to { transform: rotate(360deg) scale(1); }
+}
+
+/* ========== COMETAS ========== */
+.star-map__comet {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 1),
+              0 0 15px rgba(135, 206, 250, 0.8);
+  animation: cometOrbit 30s linear infinite;
+}
+
+.star-map__comet::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 20%,
+    rgba(135, 206, 250, 0.6) 40%,
+    rgba(138, 43, 226, 0.4) 60%,
+    transparent 100%);
+  transform: translateX(-100%) translateY(-50%);
+  filter: blur(2px);
+}
+
+@keyframes cometOrbit {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(800px, 400px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ========== POLVO ESTELAR ========== */
+.star-map__stardust {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(135, 206, 250, 0.1) 30%,
+    rgba(255, 215, 0, 0.05) 60%,
+    transparent 100%);
+  border-radius: 50%;
+  filter: blur(8px);
+  animation: stardustFloat 10s ease-in-out infinite;
+}
+
+@keyframes stardustFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(30px, -20px) scale(1.2);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-20px, -40px) scale(0.8);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translate(-30px, 15px) scale(1.1);
+    opacity: 0.5;
+  }
+}
+
+/* ========== AURORAS ESPACIALES ========== */
+.star-map__aurora {
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  opacity: 0.3;
+  filter: blur(30px);
+  animation: auroraWave 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.star-map__aurora--1 {
+  top: 5%;
+  right: 20%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(0, 255, 127, 0.3) 25%,
+    rgba(0, 212, 255, 0.4) 50%,
+    rgba(138, 43, 226, 0.3) 75%,
+    transparent 100%);
+}
+
+.star-map__aurora--2 {
+  bottom: 10%;
+  left: 15%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 107, 157, 0.3) 25%,
+    rgba(255, 215, 0, 0.4) 50%,
+    rgba(255, 149, 0, 0.3) 75%,
+    transparent 100%);
+  animation-delay: -7s;
+}
+
+@keyframes auroraWave {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translateY(-20px) scaleY(1.2);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-10px) scaleY(0.9);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateY(-30px) scaleY(1.1);
+    opacity: 0.3;
+  }
+}
+
+/* ========== SUPERNOVAS ========== */
+.star-map__supernova {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  animation: supernovaExplosion 12s ease-out infinite;
+}
+
+@keyframes supernovaExplosion {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  }
+  20% {
+    transform: scale(3);
+    opacity: 1;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1),
+                0 0 50px rgba(135, 206, 250, 0.8),
+                0 0 70px rgba(255, 215, 0, 0.6);
+  }
+  40% {
+    transform: scale(5);
+    opacity: 0.6;
+    box-shadow: 0 0 50px rgba(255, 149, 0, 0.6),
+                0 0 80px rgba(255, 107, 157, 0.4);
+  }
+  60% {
+    transform: scale(7);
+    opacity: 0.3;
+    box-shadow: 0 0 60px rgba(138, 43, 226, 0.4);
+  }
+  100% {
+    transform: scale(10);
+    opacity: 0;
+    box-shadow: 0 0 80px transparent;
+  }
+}
+
+/* ========== ESTRELLAS FUGACES ========== */
+.star-map__shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: shootingStarFall 1.5s linear infinite;
+}
+
+.star-map__shooting-star::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(135, 206, 250, 0.6) 100%);
+  transform: translateX(-100%) rotate(-30deg);
+}
+
+@keyframes shootingStarFall {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(250px, 250px);
+  }
+}
+
+/* ========== STARFIELD COMPONENT INTEGRATION ========== */
+
+/* Capa de fondo para StarField */
+.star-map__starfield-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ajustar z-index de capas existentes para mantener la jerarquía correcta */
+.star-map__starfield {
+  z-index: 1;
+}
+
+.star-map__floating-elements {
+  z-index: 3;
+}
+
+.star-map__connections {
+  z-index: 5;
+}
+
+.star-map__nodes {
+  z-index: 10;
+}
+
+.star-map__user-profile,
+.star-map__mission-panel,
+.star-map__navigation {
+  z-index: 20;
+}
+
+/* Asegurar que las estrellas del StarField no interfieran con la interacción */
+.star-map__starfield-bg .star {
+  pointer-events: none;
+}
+
+/* Ajustar opacidad del StarField para que no compita con los planetas */
+.star-map__starfield-bg {
+  opacity: 0.9;
+}
+
+/* En móviles, reducir la intensidad del StarField */
+@media (max-width: 768px) {
+  .star-map__starfield-bg {
+    opacity: 0.7;
+  }
+  
+  /* Ocultar algunos efectos del StarField en móvil para rendimiento */
+  .star-map__starfield-bg .star:nth-child(n+150) {
+    display: none;
+  }
+}
+
+/* Modo de alto contraste */
+@media (prefers-contrast: high) {
+  .star-map__starfield-bg {
+    opacity: 0.5;
+  }
+}
+
+/* Modo de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .star-map__starfield-bg .star {
+    animation: none !important;
+  }
+}
+
+/* ========== OPTIMIZACIONES PARA AMBOS SISTEMAS ========== */
+
+/* Mejorar rendimiento en dispositivos móviles */
+@media (max-width: 768px) {
+  /* Simplificar efectos astronómicos complejos */
+  .star-map__constellation,
+  .star-map__galaxy,
+  .star-map__comet,
+  .star-map__aurora,
+  .star-map__supernova,
+  .star-map__shooting-star {
+    display: none;
+  }
+  
+  .star-map__stardust:nth-child(n+4) {
+    display: none;
+  }
+  
+  /* Mantener solo los elementos esenciales */
+  .star-map__nebula {
+    filter: blur(40px);
+    opacity: 0.3;
+  }
+}
+
+/* Optimización de rendimiento general */
+.star-map__starfield-bg * {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+ 
+/* ========== VÍA LÁCTEA ========== */
+
+.star-map__milky-way {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  z-index: 0.5;
+  pointer-events: none;
+  transform: rotate(-25deg);
+  opacity: 0.6;
+  animation: milkyWayDrift 120s linear infinite;
+}
+
+/* Núcleo galáctico brillante */
+.milky-way__core {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle at center,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 235, 200, 0.3) 15%,
+    rgba(255, 200, 150, 0.25) 30%,
+    rgba(200, 180, 255, 0.15) 50%,
+    rgba(150, 150, 255, 0.08) 70%,
+    transparent 100%);
+  border-radius: 50%;
+  filter: blur(40px);
+  transform: translate(-50%, -50%);
+  animation: coreGlow 8s ease-in-out infinite;
+}
+
+@keyframes coreGlow {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+/* Bandas de la Vía Láctea */
+.milky-way__band {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  transform: translateY(-50%);
+  filter: blur(60px);
+  mix-blend-mode: screen;
+}
+
+.milky-way__band--1 {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(200, 220, 255, 0.15) 15%,
+    rgba(180, 200, 255, 0.25) 30%,
+    rgba(255, 240, 220, 0.35) 50%,
+    rgba(180, 200, 255, 0.25) 70%,
+    rgba(200, 220, 255, 0.15) 85%,
+    transparent 100%);
+  animation: bandFlow1 60s linear infinite;
+}
+
+.milky-way__band--2 {
+  height: 200px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(150, 170, 255, 0.1) 20%,
+    rgba(200, 180, 255, 0.2) 40%,
+    rgba(255, 230, 200, 0.25) 50%,
+    rgba(200, 180, 255, 0.2) 60%,
+    rgba(150, 170, 255, 0.1) 80%,
+    transparent 100%);
+  animation: bandFlow2 70s linear infinite reverse;
+  opacity: 0.8;
+}
+
+.milky-way__band--3 {
+  height: 150px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(180, 150, 255, 0.08) 25%,
+    rgba(220, 200, 255, 0.15) 45%,
+    rgba(255, 220, 180, 0.2) 50%,
+    rgba(220, 200, 255, 0.15) 55%,
+    rgba(180, 150, 255, 0.08) 75%,
+    transparent 100%);
+  animation: bandFlow3 80s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes bandFlow1 {
+  0% {
+    transform: translateY(-50%) translateX(0);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-5%);
+  }
+}
+
+@keyframes bandFlow2 {
+  0% {
+    transform: translateY(-50%) translateX(0);
+  }
+  100% {
+    transform: translateY(-50%) translateX(5%);
+  }
+}
+
+@keyframes bandFlow3 {
+  0% {
+    transform: translateY(-50%) translateX(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-50%) translateX(-3%) scaleY(1.1);
+  }
+  100% {
+    transform: translateY(-50%) translateX(0) scaleY(1);
+  }
+}
+
+/* Estrellas densas de la Vía Láctea */
+.milky-way__stars-dense {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  transform: translateY(-50%);
+  background-image: 
+    radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 40% 50%, rgba(200, 220, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 60% 40%, rgba(255, 240, 220, 0.7), transparent),
+    radial-gradient(1px 1px at 80% 60%, rgba(220, 200, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 25% 70%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 45% 20%, rgba(200, 220, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 65% 80%, rgba(255, 240, 220, 0.5), transparent),
+    radial-gradient(1px 1px at 85% 35%, rgba(220, 200, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 15% 55%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 35% 75%, rgba(200, 220, 255, 0.6), transparent);
+  background-size: 200px 200px, 180px 180px, 220px 220px, 190px 190px, 
+                   210px 210px, 170px 170px, 230px 230px, 160px 160px,
+                   240px 240px, 150px 150px;
+  background-position: 0% 0%, 20% 10%, 40% 5%, 60% 15%, 
+                       80% 8%, 10% 20%, 30% 18%, 50% 22%,
+                       70% 12%, 90% 25%;
+  animation: starsDenseShift 100s linear infinite;
+  opacity: 0.4;
+  filter: blur(0.5px);
+}
+
+@keyframes starsDenseShift {
+  0% {
+    background-position: 0% 0%, 20% 10%, 40% 5%, 60% 15%, 
+                         80% 8%, 10% 20%, 30% 18%, 50% 22%,
+                         70% 12%, 90% 25%;
+  }
+  100% {
+    background-position: -100% 0%, -80% 10%, -60% 5%, -40% 15%, 
+                         -20% 8%, -90% 20%, -70% 18%, -50% 22%,
+                         -30% 12%, -10% 25%;
+  }
+}
+
+/* Animación de deriva general de la Vía Láctea */
+@keyframes milkyWayDrift {
+  0% {
+    transform: rotate(-25deg) translateX(0);
+  }
+  100% {
+    transform: rotate(-25deg) translateX(-2%);
+  }
+}
+
+/* Partículas de polvo cósmico en la Vía Láctea */
+.milky-way__core::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at center,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(200, 220, 255, 0.03) 40%,
+    transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: dustRotate 30s linear infinite;
+}
+
+.milky-way__core::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle at center,
+    rgba(255, 240, 220, 0.06) 0%,
+    rgba(220, 200, 255, 0.04) 40%,
+    transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: dustRotate 40s linear infinite reverse;
+}
+
+@keyframes dustRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* ========== OPTIMIZACIONES MÓVILES PARA VÍA LÁCTEA ========== */
+
+@media (max-width: 768px) {
+  .star-map__milky-way {
+    opacity: 0.4;
+  }
+  
+  .milky-way__core {
+    width: 120px;
+    height: 120px;
+    filter: blur(25px);
+  }
+  
+  .milky-way__band {
+    height: 180px;
+    filter: blur(40px);
+  }
+  
+  .milky-way__band--2 {
+    height: 120px;
+  }
+  
+  .milky-way__band--3 {
+    display: none;
+  }
+  
+  .milky-way__stars-dense {
+    height: 150px;
+    opacity: 0.2;
+  }
+  
+  .milky-way__core::before,
+  .milky-way__core::after {
+    display: none;
+  }
+}
+
+/* Modo de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .star-map__milky-way,
+  .milky-way__core,
+  .milky-way__band,
+  .milky-way__stars-dense,
+  .milky-way__core::before,
+  .milky-way__core::after {
+    animation: none;
+  }
+  
+  .star-map__milky-way {
+    opacity: 0.4;
+  }
+}
+
+/* Modo de alto contraste */
+@media (prefers-contrast: high) {
+  .star-map__milky-way {
+    display: none;
+  }
+}
